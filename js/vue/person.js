@@ -35,6 +35,9 @@ var personDetail = {
         deathPlace: function() {
             return this.death?.place ?? ""
         },
+        hasCouples: function() {
+            return this.couples.length > 0
+        },
         couplePartners: function() {
             var partnerIds = {}
             for (index in this.couples) {
@@ -67,8 +70,8 @@ var personDetail = {
                             <p>Lugar de nacimiento: {{birthPlace}}</p>
                             <p v-if=deathDate>Fecha de defunción: {{deathDate}}</p>
                             <p v-if=deathPlace>Lugar de defunción: {{deathPlace}}</p>
-                            <p v-if="couples.length > 0">
-                                Parejas:
+                            <div v-if="hasCouples">
+                                <p>Parejas:</p>
                                 <div class="collection">
                                     <a v-bind:href="'?id=' + coupleId" class="collection-item avatar amber lighten-4 indigo-text text-darken-4" v-for="(partnerId, coupleId) in couplePartners">
                                         <img v-bind:src="'https://picsum.photos/seed/' + partnerId + '/50'" alt="" class="circle">
@@ -77,7 +80,7 @@ var personDetail = {
                                         </span>
                                     </a>
                                 </div>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
