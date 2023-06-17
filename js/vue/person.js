@@ -26,8 +26,14 @@ var personDetail = {
         birthDate: function() {
             return formatDate(this.birth)
         },
+        birthPlace: function() {
+            return this.birth?.place ?? ""
+        },
         deathDate: function() {
             return formatDate(this.death)
+        },
+        deathPlace: function() {
+            return this.death?.place ?? ""
         },
         couplePartners: function() {
             var partnerIds = {}
@@ -58,7 +64,9 @@ var personDetail = {
                         <div class="col m6 l8">
                             <span class="card-title">{{fullName}}</span>
                             <p>Fecha de nacimiento: {{birthDate}}</p>
+                            <p>Lugar de nacimiento: {{birthPlace}}</p>
                             <p v-if=deathDate>Fecha de defunción: {{deathDate}}</p>
+                            <p v-if=deathPlace>Lugar de defunción: {{deathPlace}}</p>
                             <p v-if="couples.length > 0">
                                 Parejas:
                                 <div class="collection">

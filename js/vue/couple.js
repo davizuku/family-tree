@@ -7,6 +7,9 @@ Vue.component('couple', {
         startDate: function() {
             return formatDate(this.start)
         },
+        startPlace: function() {
+            return this.start?.place ?? ""
+        },
         endDate: function() {
             return formatDate(this.end)
         }
@@ -28,6 +31,7 @@ Vue.component('couple', {
                         </span>
                     </div>
                     <p v-if=startDate>Comienzo: {{startDate}}</p>
+                    <p v-if=startPlace>Lugar: {{startPlace}}</p>
                     <p v-if=endDate>Fin: {{endDate}}</p>
                     <p v-if="descendants.length > 0">
                         Descendientes:
