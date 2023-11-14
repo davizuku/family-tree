@@ -20,6 +20,6 @@
     "readline-sync": "^1.4.10"
   },
   "dependencies": {
-    "crypto-js": "^4.1.1"
+    "crypto-js": "^4.2.0"
   }
 }
