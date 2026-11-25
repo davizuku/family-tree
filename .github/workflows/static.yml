@@ -39,7 +39,7 @@ jobs:
           node-version: "18.x"
       - run: npm install
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: '.'
